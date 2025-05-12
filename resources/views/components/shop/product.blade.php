@@ -4,9 +4,6 @@
     <div class="container py-5">
       <div class="tab-class text-center">
         <div class="row g-4 align-items-center mb-3">
-          <div class=" text-center">
-            <h1>Tất cả sản phẩm</h1>
-          </div>
         </div>
         <div class="tab-content">
           <div id="tab-1" class="tab-pane fade show p-0 active">

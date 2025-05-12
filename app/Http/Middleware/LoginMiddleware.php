@@ -9,18 +9,19 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LoginMiddleware
 {
-    public function handle(Request $request, Closure $next): Response
-    {
-        if (! Auth::check()) {
-            return redirect()->route('shop.login');
-        } else {
-            $user = Auth::user();
-            // Only allow admins to access specific routes
-            if ($user->roles != 'admin') {
-                return redirect()->route('admin.home');
-            }
-        }
-
-        return $next($request);
+    public function handle(Request $request, Closure $next, ...$roles)
+{
+    if (!Auth::check()) {
+        return redirect()->route('auth.login');
     }
+
+    $user = Auth::user();
+    if ($user->status != 1 || !in_array($user->roles, $roles)) {
+        return redirect()->route('admin.home');
+    }
+
+    return $next($request);
+}
+
+    
 }

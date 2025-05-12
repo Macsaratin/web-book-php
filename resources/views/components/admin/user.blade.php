@@ -30,7 +30,7 @@
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td>{{ $user->id }}</td>
-                        <td>{{ $user->fullname }}</td>
+                        <td>{{ $user->name }}</td>
                         <td>
                             @if($user->avatar)
                                 <img src="{{ asset('images/user/' . $user->avatar) }}" alt="{{ $user->username }}" width="60">

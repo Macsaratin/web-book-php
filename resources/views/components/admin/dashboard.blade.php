@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/user">
+                    <a href="£st}">
                         <i class="fa fa-user fa-lg"></i>
                         <span class="nav-text">Account</span>
                     </a>

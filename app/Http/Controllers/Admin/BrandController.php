@@ -35,22 +35,17 @@ class BrandController extends Controller
         $brand->created_by = Auth::id() ?? 1;
         $brand->status = $request->status;
 
-        // Handle file upload
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             if ($file->isValid()) {
                 $filename = time().'-'.$file->getClientOriginalName();
                 $file->move(public_path('imagebook/brand'), $filename);
                 $brand->image = 'imagebook/brand/'.$filename;
-
-                // Debugging line
                 Log::info('File uploaded successfully', ['filename' => $filename]);
             } else {
-                // Debugging line
                 Log::error('Uploaded file is not valid');
             }
         } else {
-            // Debugging line
             Log::error('No file uploaded');
         }
 

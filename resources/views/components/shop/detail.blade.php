@@ -30,9 +30,6 @@
                     <span class="text-danger fw-bold">Sale - {{ $product->discount }}%</span>
                 </div>
             @endif
-
-            <p class="mb-4">{{ $product->description }}</p>
-
             <!-- Số lượng sản phẩm -->
             <div class="input-group mb-3" style="width: 120px;">
                 <button class="btn btn-outline-secondary btn-sm" type="button">-</button>

@@ -10,7 +10,6 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    // Hiển thị danh sách sản phẩm
     public function index() {
         $products = Product::with(['category', 'brand'])
             ->select(
@@ -34,7 +33,6 @@ class ProductController extends Controller
         return view("shop.product.products", compact('products'));
     }
 
-    // Hiển thị sản phẩm theo danh mục
     public function ProductByCategory($slug) {
         $category = Category::where('slug', $slug)->first();
         
@@ -51,8 +49,6 @@ class ProductController extends Controller
         $categories = Category::whereNull('parent_id')->take(4)->get();
         return view("shop.category.categories", compact('products', 'categories', 'category'));
     }
-
-    // Hiển thị sản phẩm theo thương hiệu
     public function ProductByBrand($slug) {
         $brand = Brand::where('slug', $slug)->first();
 
@@ -69,7 +65,6 @@ class ProductController extends Controller
         return view("shop.brand.brands", compact('products', 'brands', 'brand'));
     }
 
-    // Chi tiết sản phẩm
     public function ProductDetail($slug) {
         $product = Product::with(['category', 'brand'])->where('slug', $slug)->first();
     

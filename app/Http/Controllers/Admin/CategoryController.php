@@ -167,7 +167,6 @@ class CategoryController extends Controller
        $category = Category::withTrashed()->findOrFail($id);
        
        $category->restore();
-   
        $category->status = 0;
        $category->save();
    
@@ -196,7 +195,6 @@ class CategoryController extends Controller
         $trashCount = Category::where('status', '=', 2)
             ->orderBy('created_at', 'desc')
             ->get();
-
         return view('admin.category.trash', compact('trashCount'));
     }
 }

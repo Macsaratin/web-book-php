@@ -3,16 +3,17 @@
 @section('title', 'Trang chủ')
 
 @section('content')
+<x-shop.banner :banners="$banners"/>
     <div class="homepage-container">
-        <!-- Banner Section -->
-        <section class="banner-section">
+          <!-- Brands Section -->
+          <section class="brands-section">
             <div class="container">
-                <x-shop.banner :banners="$banners"/>
+                <x-shop.brand :brands="$brands"/>
             </div>
         </section>
-
         <!-- Products Section -->
-        <section class="products-section bg-gray">
+        <section class="products-section bg-light">
+            
             <div class="container">
                 <x-shop.product :products="$products"/>
                 <div class="text-center mb-4">
@@ -38,11 +39,6 @@
             </div>
         </section>
 
-        <!-- Brands Section -->
-        <section class="brands-section">
-            <div class="container">
-                <x-shop.brand :brands="$brands"/>
-            </div>
-        </section>
+      
     </div>
 @endsection

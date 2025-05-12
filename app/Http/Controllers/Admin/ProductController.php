@@ -208,8 +208,6 @@ class ProductController extends Controller
         $product->updated_at = now();
         $product->updated_by = Auth::id() ?? 1;
         $product->status = $request->status;
-    
-        // Xử lý ảnh nếu có upload mới
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '-' . $file->getClientOriginalName();
@@ -263,8 +261,6 @@ class ProductController extends Controller
     
         return redirect()->route('admin.product.trash')->with('success', 'product đã được khôi phục!');
     }
-
-    // Add the updateStatus method to handle status updates
     public function updateStatus($id)
     {
         $product = Product::find($id);

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\CustomUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +14,7 @@ class CustomUserController extends Controller
     public function index()
     {
         //
-        $custom_users= CustomUser::all();
+        $custom_users= User::all();
         return view('admin.user.list', compact('custom_users'));
     }
 
